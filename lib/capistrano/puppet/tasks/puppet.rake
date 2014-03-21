@@ -152,10 +152,10 @@ namespace :puppet do
 
     # Determine the hiera file to use
     hiera_tpl = nil
-    if File.exists?("#{fetch(:hiera_data)}/tpl/hiera.#{stage}.erb")
-      hiera_tpl = "#{fetch(:hiera_data)}/tpl/hiera.#{stage}.erb"
-    elsif File.exists?("#{fetch(:hiera_data)}/tpl/hiera.erb")
-      hiera_tpl = "#{fetch(:hiera_data)}/tpl/hiera.erb"
+    if File.exists?("#{fetch(:hiera_data)}/tpl/hiera.#{stage}.yaml.erb")
+      hiera_tpl = "#{fetch(:hiera_data)}/tpl/hiera.#{stage}.yaml.erb"
+    elsif File.exists?("#{fetch(:hiera_data)}/tpl/hiera.yaml.erb")
+      hiera_tpl = "#{fetch(:hiera_data)}/tpl/hiera.yaml.erb"
     end
 
     if hiera_tpl
