@@ -17,8 +17,15 @@ namespace :vagrant do
       else
         cap_info "Building #{dir}/Vagrantfile"
         sh "mkdir -p #{dir}"
-        template = "#{fetch(:vagrant_data)}/tpl/Vagrantfile.#{server[:cloud]}.erb"
-        render_template(template, "#{dir}/Vagrantfile", binding)
+
+        if test("[ -e #{fetch(:vagrant_data)}/tpl/Vagrantfile.#{server[:cloud]}.erb ]")
+          template = "#{fetch(:vagrant_data)}/tpl/Vagrantfile.#{server[:cloud]}.erb"
+        elsif test("[ -e lib/capistarno/vagrant/tpl/Vagrantfile.#{server[:cloud]}.erb ]")
+          template = "lib/capistarno/vagrant/tpl/Vagrantfile.#{server[:cloud]}.erb"
+        else
+          cap_error "#{fetch(:vagrant_data)}/tpl/Vagrantfile.#{server[:cloud]}.erb does not exist"
+        end      
+        render_template(template, "#{dir}/Vagrantfile", binding) unless template.nil?
       end
     end
   end
