@@ -12,9 +12,8 @@ Gem::Specification.new do |gem|
   	gem.summary     = "masterless puppet deployment"
   	gem.description = "For masterless puppet deployment"
   	gem.authors     = ["Joe Topjian", "Geun"]
-  	gem.email       = ['joe@topjian.net', "geunbaelee@gmail.com"
-  	
-  	gem.homepage    =	'https://github.com/jtopjian/capistrano-modules'
+  	gem.email       = ['joe@topjian.net', "geunbaelee@gmail.com"]  	
+  	gem.homepage    = 'https://github.com/jtopjian/capistrano-modules'
   	gem.license     = 'MIT'
 
   	gem.files       = `git ls-files`.split($/)
@@ -23,7 +22,6 @@ Gem::Specification.new do |gem|
   	gem.add_dependency 'capistrano', '~> 3.1'
   	gem.add_dependency 'capistrano-bundler', '~> 1.1'
   	gem.add_dependency 'hiera', '~> 1.3.2' #lastest version
-  	gem.add_dependency 'sshkit', :git => 'https://github.com/capistrano/sshkit' #to fi
 
   	gem.post_install_message = <<eos
 modules for masterless puppet deployment
