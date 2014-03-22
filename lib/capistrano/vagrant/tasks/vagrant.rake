@@ -7,7 +7,7 @@ namespace :vagrant do
   # It requires that a server is defined in hiera first.
    desc "Create a new Vagrant instance"
   task :new do
-    on roles(:all).each do |s|
+    roles(:all).each do |s|
       server = hiera_get_server s
       # Check to see if an instance already exists
       # Render a Vagrantfile template if it doesn't
@@ -27,7 +27,7 @@ namespace :vagrant do
   # boot the server
   desc "Create and launch a new Vagrant instance"
   task :up do
-    on roles(:all).each do |s|
+    roles(:all).each do |s|
       server = hiera_get_server s
       # run vagrant:new to create the machine
       invoke 'vagrant:new'
@@ -51,7 +51,7 @@ namespace :vagrant do
   # Destroy and cleanup a vagrant server
   desc "Destroy and cleanup a vagrant server"
   task :destroy do
-    on roles(:all).each do |host|
+    roles(:all).each do |host|
       server = hiera_get_server host
       dir = "#{fetch(:vagrant_data)}/#{server[:cloud]}/#{host}"
       sh <<-EOS
