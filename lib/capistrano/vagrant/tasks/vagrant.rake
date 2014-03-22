@@ -5,7 +5,7 @@ namespace :vagrant do
   # Vagrantfile for that server.
   #
   # It requires that a server is defined in hiera first.
-  desc "Create a new Vagrant instance"
+   desc "Create a new Vagrant instance"
   task :new do
     on roles(:all).each do |s|
       server = hiera_get_server s
@@ -17,17 +17,8 @@ namespace :vagrant do
       else
         cap_info "Building #{dir}/Vagrantfile"
         sh "mkdir -p #{dir}"
-
-        if test("[ -w #{fetch(:deploy_to)} ]")
-
-        if test("[ -e #{fetch(:vagrant_data)}/tpl/Vagrantfile.#{server[:cloud]}.erb ]")
-          template = "#{fetch(:vagrant_data)}/tpl/Vagrantfile.#{server[:cloud]}.erb"
-        elsif test("[ -e lib/capistarno/vagrant/tpl/Vagrantfile.#{server[:cloud]}.erb ]")
-          template = "lib/capistarno/vagrant/tpl/Vagrantfile.#{server[:cloud]}.erb"
-        else
-          cap_error "#{fetch(:vagrant_data)}/tpl/Vagrantfile.#{server[:cloud]}.erb does not exist"
-        end      
-        render_template(template, "#{dir}/Vagrantfile", binding) unless template.nil?
+        template = "#{fetch(:vagrant_data)}/tpl/Vagrantfile.#{server[:cloud]}.erb"
+        render_template(template, "#{dir}/Vagrantfile", binding)
       end
     end
   end
