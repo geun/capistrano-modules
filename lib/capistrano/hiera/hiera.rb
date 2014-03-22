@@ -1,1 +1,1 @@
-load File.expand_path("lib/cap_hiera.rb", __FILE__)
+load File.expand_path("../lib/cap_hiera.rb", __FILE__)

@@ -1,1 +1,1 @@
-load File.expand_path("tasks/vagrant.rake", __FILE__)
+load File.expand_path("../tasks/vagrant.rake", __FILE__)
