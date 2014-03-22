@@ -21,8 +21,8 @@ Gem::Specification.new do |gem|
   	gem.add_dependency 'capistrano-bundler', '~> 1.1'
   	gem.add_dependency 'hiera', '~> 1.3.2' #lastest version
     gem.add_dependency 'sshkit', '~> 1.3'
-
-
+    gem.add_dependency 'colorize', '~> 0.7.0'
+    
   	gem.post_install_message = <<eos
 modules for masterless puppet deployment
 have a good time!
