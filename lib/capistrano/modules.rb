@@ -1,0 +1,7 @@
+require 'capistrano/facter/facter'
+require 'capistrano/hiera/hiera'
+require 'capistrano/puppet/puppet'
+require 'capistrano/server/server'
+require 'capistrano/ssh/ssh'
+require 'capistrano/utils/utils'
+require 'capistrano/vagrant/vagrant'
